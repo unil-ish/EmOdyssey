@@ -28,8 +28,9 @@ de jeux vidéo et autres applications qui nécessitent une analyse émotionnelle
 ## Etapes
 Le projet consiste en plusieurs étapes:
 
-1. Vous devez prendre des fichiers JSON en entrée et les passer à travers un parseur.
-Le parseur sera utilisé pour extraire le texte à partir du JSON.
+1. Vous devez prendre des fichiers JSON en entrée et les passer à travers [le parseur](https://github.com/dpicca/tagtog2df).
+ATTENTION: le parseur est un outil externe, vous devez donc l'installer sur votre machine avant de pouvoir l'utiliser
+Le parseur prendra les fichiers JSON en entrée et les convertira en fichiers DataFrame
 
 2. Ensuite, vous devez prendre le texte extrait du JSON et
 le passer à travers les outils de traitement de texte SenticNet (que vous pouvez retrouver [ici](senticnet.py))
