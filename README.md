@@ -34,9 +34,7 @@ Le parseur prendra les fichiers JSON en entrée et les convertira en fichiers Da
 
 2. Ensuite, vous devez prendre le texte extrait du JSON et
 le passer à travers les outils de traitement de texte SenticNet (que vous pouvez retrouver [ici](senticnet.py))
-3. et [PYfeel](https://github.com/AdilZouitine/pyFeel).
-
-3. Ces outils sont utilisés pour tagger le texte en fonction de son contenu émotionnel. 
+3. et [PYfeel](https://github.com/AdilZouitine/pyFeel). Ces outils sont utilisés pour tagger le texte en fonction de son contenu émotionnel. 
 Les tags permettront de décrire l'émotion que l'auteur du texte veut transmettre.
 
 3. Après avoir taggé le texte, vous devez comparer les tags de SenticNet et PYfeel 
@@ -49,8 +47,8 @@ Cela permettra de mesurer l'exactitude des outils SenticNet et PYfeel.
 
 5. Enfin, vous devez construire un RDF (Resource Description Framework) pour les statistiques. 
 Le RDF permettra de stocker et d'organiser les données de manière à ce qu'elles soient facilement accessibles et consultables.
-
-6. Vous devez également construire une A-Box RDF pour [cette ontologie](./ontologies/psy_model.owl)
+6. Vous devez étudier l'ontologie [psy_model.owl](./ontologies/psy_model.owl) et la comprendre.
+6. Vous devez également construire une A-Box RDF pour [psy_model.owl](./ontologies/psy_model.owl)
 L'A-Box RDF est une extension du RDF qui permet de décrire les instances individuelles de concepts de l'ontologie. 
 Cette étape est importante pour la création d'une base de données complète.
 
