@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+
+@author: Adil Zouitine <adilzouitinegm@gmail.com
+
+"""
+import numpy as np
+import nltk
+import os.path
+
+
+__all__ = ['Feel']
+
+class Feel():
+    '''
+    Calculates the emotion of a string with a'bag of word' method.
+    object.dict to see the bag of word.
+
+    >>> from pyFeel import Feel
+    >>> test = Feel("Ma classe marche bien, c'est génial non ?")
+    >>> test.emotions()
+    Out : {'positivity': 1.0, 'joy': 0.25, 'fear': 0.0, 'sadness': 0.25,
+          'angry': 0.0, 'surprise': 0.0, 'disgust': 0.0}
+    '''
+
+    def __init__(self,text):
+        '''
+        Input : string Output : /
+        '''
+
+        scriptpath = os.path.dirname(__file__)
+        dict_name = os.path.join(scriptpath, 'feel.npy')
+        np_load_old = np.load
+        np.load = lambda *a, **k: np_load_old(*a, allow_pickle=True, **k)
+
+        self.dict = np.load(dict_name).item()
+        np.load = np_load_old
+        self.token = [word for word in nltk.word_tokenize(text.lower())]
+        self.sentiment = {}
+        self.number_emotion = 7
+        self.vector = np.zeros(self.number_emotion)
+        self.list_emotions = ['positivity',
+                              'joy',
+                              'fear',
+                              'sadness',
+                              'angry',
+                              'surprise',
+                              'disgust']
+
+
+    def emotions(self):
+        '''
+        Calculates emotion by averaging the emotion vectors of each word in
+        the input string and the bag of word.
+
+        Input : (self) Output : dict
+        '''
+
+        retain_word = 0
+        for word in self.token:
+            if word.lower() in self.dict:
+                self.vector = np.add(self.vector,
+                                     self.dict[word],
+                                     out = self.vector)
+                retain_word += 1
+        if retain_word != 0:
+            self.vector /= retain_word
+        for emotion,emotion_value in zip(self.list_emotions,self.vector):
+            self.sentiment.update({emotion : float(emotion_value)})
+        return self.sentiment
+
+if __name__ == '__main__':
+    test = Feel("Ma classe fonctionne bien, c'est sympathique non ?")
+    print(test.emotions())
