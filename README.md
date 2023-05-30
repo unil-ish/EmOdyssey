@@ -53,10 +53,12 @@ L'A-Box RDF est une extension du RDF qui permet de décrire les instances indivi
 Cette étape est importante pour la création d'une base de données complète.
 
 Ce projet vous permettra de travailler avec des outils de traitement de texte avancés, ainsi que d'apprendre à utiliser le RDF et l'A-Box RDF. Il vous permettra également de travailler avec des fichiers JSON, qui sont couramment utilisés dans les applications Web et mobiles.
+# Contexte
 
-#Structure
+Ce projet a été effectué en cadre du cours “Programmation pour le Web Sémantique”, donné par prof. Davide Picca à l’Université de Lausanne au semestre de printemps 2023. Le projet a été réalisé par trois étudiants de l’UNIL: Nicolas Bovet, Antonin Schnyder et Sofia Boteva. Le but du projet était de se familiariser avec les concepts principaux du Web Sémantique, apprendre d’utiliser le RDF et construire l’Abox RDF, tout en explorant les capacités et les limites de traitement de texte de SenticNet et PYfeel, comparés à l’analyse humaine.
+# Structure
 Ci-dessous est décrit la structure du projet en détaillant le contenu des dossiers et sous-dossiers  
-##Dossier ```csv```
+## Dossier ```csv```
 Dans ce dossier sont stockés les fichiers csv contenant chacun une dataframe généré par la classe EvalFeel.
  
  - ```all_df.csv``` contient la dataframe brute qui réunit tous les fichiers JSON
@@ -64,24 +66,24 @@ Dans ce dossier sont stockés les fichiers csv contenant chacun une dataframe g�
  -  ```emotions_df.csv``` contient la dataframe qui réunit la classification des émotions des trois méthodes (TagTog,Senticnet,PyFeel) et le texte correspondant
  - ```stats_emotions.csv``` contient le récapitulatif des statistiques faits sur les données avec une ligne par émotion et ses occurences avec chaque méthode et chaque intersection de méthode. 
 
-##Dossier ```ontologies```
+## Dossier ```ontologies```
 Ce dossier contient les ontologies utilisées et les ontologies exportées par le programme.
 
 - ```psy_model.owl``` est l'ontologie de base, avant d'avoir été modifiée
 - ```emotions_modif.rdf``` est l'ontologie de base (ci-dessus) modifiée selon les besoins. On y a ajouté les "datatype properties" ```hasCommonEmotion```, ```hasAllCommonEmotions``` et ```hasTotalEmotions``` ainsi que les "object properties" ```hasTagtogEmotion```, ```hasSenticnetEmotion``` et ```hasPyfeelEmotion```. On a aussi retravaillé l'ontologie de telle sorte à refléter la hiérarchie des émotions de SenticNet et faire le pont entre les différents systèmes d'émotions (TagTog, SenticNet et PyFeel).
 - ```emotion_modif_filled.rdf``` est un exemple d'output (avec la A-Box créée) tel qu'il est possible de l'obtenir après avoir lancé et utilisé le programme.
-##Dossier ```png```
+## Dossier ```png```
 Chaque fichier png représente des diagrammes de Venn illustrant le nombre de reconnaissances de chaque émotion par les trois programmes, ainsi que le nombre de reconnaissances communes par les différentes méthodes (en intersections). Le finchier “none” illustre le cas limite de fonctionnement de Senticnet, où aucune émotion n’a été reconnue pour les speechs.
-##Dossier ```rapport```
+## Dossier ```rapport```
 Dans le dossier rapport se trouve le rapport qui décrit en détail notre processus lors de ce travail.
-##Fichier  ```abox.py```
+## Fichier  ```abox.py```
 Dans le fichier ```abox.py```se trouve la classe ```abox``` qui a pour fonction de remplir une ontologie avec des extraits de textes, des émotions et des statistiques
-##Fichier  ```evalfeel.py```
+## Fichier  ```evalfeel.py```
 Dans le fichier ```evalfeel.py``` se trouve la classe ```evalfeel``` qui a pour fonction de créer une dataframe contenant extraits de textes et émotions correspondantes. Elle s'occupe également de calculer des statistiques de représentation à partir de cette dataframe.
-#Fichier ```main.py```
+# Fichier ```main.py```
 Le fichier ```main.py``` peremt d'exécuter les fonctions des deux classes ```abox``` et ```evalfeel```.
 
-#Classes utilisables 
+# Classes utilisables 
 ## EvalFeel
 EvalFeel est une classe qui permet de créer une dataframe à partir de fichiers JSON dans lesquels sont stockées des textes tagués avec une émotion par TagTog.
 
