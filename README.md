@@ -80,7 +80,7 @@ Dans le dossier rapport se trouve le rapport qui décrit en détail notre proces
 Dans le fichier ```abox.py```se trouve la classe ```abox``` qui a pour fonction de remplir une ontologie avec des extraits de textes, des émotions et des statistiques
 ## Fichier  ```evalfeel.py```
 Dans le fichier ```evalfeel.py``` se trouve la classe ```evalfeel``` qui a pour fonction de créer une dataframe contenant extraits de textes et émotions correspondantes. Elle s'occupe également de calculer des statistiques de représentation à partir de cette dataframe.
-# Fichier ```main.py```
+## Fichier ```main.py```
 Le fichier ```main.py``` peremt d'exécuter les fonctions des deux classes ```abox``` et ```evalfeel```.
 
 # Classes utilisables 
