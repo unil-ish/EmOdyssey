@@ -16,7 +16,7 @@ def main():
     
     # (2) Re-import data and fill A-Box and export the ontology
     abf = ABoxFiller('csv/emotions_df.csv', 'csv/stats_emotions.csv', 'ontologies/emotions_modif.rdf')
-    abf.fill()
+    abf.fill() # fill the A-Box and save the ontology
 
 if __name__ == '__main__':
     main()
